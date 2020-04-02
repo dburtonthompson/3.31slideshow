@@ -23,8 +23,20 @@ var slideshow = {
 		console.log(this.photoList[this.currentPhotoIndex]);
 		}
 	},
-	getCurrentPhoto: function(currentPhotoIndex){
-		return currentPhotoIndex
+	getCurrentPhoto: function(){
+		return this.photoList[currentPhotoIndex]; 
 
 	}
 };
+
+playInterval: null,
+
+    play: function() {
+        var self = this;
+        this.playInterval = setInterval(function(){
+        	self.nextPhoto()}, 2000)
+    },
+
+    pause: function() {
+        clearInterval(this.playInterval);
+    }
